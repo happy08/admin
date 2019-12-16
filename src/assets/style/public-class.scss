@@ -1,0 +1,121 @@
+@import 'public';
+
+// 补丁 base
+@import '~@/assets/style/fixed/base.scss';
+// 补丁 element
+@import '~@/assets/style/fixed/element.scss';
+
+// 动画
+@import '~@/assets/style/animate/vue-transition.scss';
+
+// 在这里写公用的class
+// 注意 这个文件里只写class
+// mixin等内容请在 public.scss 里书写
+
+//----------改下默认样式---------------------------
+.el-dialog{
+  min-width: 680px;
+}
+.el-date-editor.el-input, .el-date-editor.el-input__inner {
+  width: 193px !important;
+}
+//table td th居中
+.el-table tr td, .el-table tr th{
+  text-align: center;
+}
+.el-table tr td.is-left, .el-table tr th.is-left{
+  text-align: left;
+}
+
+//-----------公共样式-------------------------------
+img{
+  max-width: 100%;
+  border: 0;
+}
+.color-danger{
+  color: $color-danger !important;
+}
+.color-success{
+  color: $color-success !important;
+}
+.color-danger.is-disabled, .color-danger.is-disabled:focus, .color-danger.is-disabled:hover{
+  opacity: .5;
+}
+.color-success.is-disabled, .color-success.is-disabled:focus, .color-success.is-disabled:hover{
+  opacity: .5;
+}
+
+//图片上传
+.avatar-uploader {
+  display: inline-block;
+  .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    &:hover {
+      border-color: $color-primary;
+    }
+    .avatar-uploader-icon {
+      font-size: 28px;
+      color: #8c939d;
+      width: 100px;
+      height: 100px;
+      line-height: 100px !important;
+      text-align: center;
+    }
+    .avatar {
+      width: 100px;
+      height: 100px;
+      display: block;
+    }
+  }
+}
+
+
+
+
+// 文字相关
+.#{$prefix}-text-center {
+  text-align: center;
+}
+
+// 浮动相关
+.#{$prefix}-fl {
+  float: left;
+}
+.#{$prefix}-fr {
+  float: right;
+}
+
+// 边距相关
+$sizes: (0, 5, 10, 15, 20);
+
+@for $index from 1 to 6 {
+  .#{$prefix}-m-#{nth($sizes, $index)} { margin: #{nth($sizes, $index)}px !important; }
+  .#{$prefix}-mt-#{nth($sizes, $index)} { margin-top: #{nth($sizes, $index)}px !important; }
+  .#{$prefix}-mr-#{nth($sizes, $index)} { margin-right: #{nth($sizes, $index)}px !important; }
+  .#{$prefix}-mb-#{nth($sizes, $index)} { margin-bottom: #{nth($sizes, $index)}px !important; }
+  .#{$prefix}-ml-#{nth($sizes, $index)} { margin-left: #{nth($sizes, $index)}px !important; }
+
+  .#{$prefix}-p-#{nth($sizes, $index)} { padding: #{nth($sizes, $index)}px !important; }
+  .#{$prefix}-pt-#{nth($sizes, $index)} { padding-top: #{nth($sizes, $index)}px !important; }
+  .#{$prefix}-pr-#{nth($sizes, $index)} { padding-right: #{nth($sizes, $index)}px !important; }
+  .#{$prefix}-pb-#{nth($sizes, $index)} { padding-bottom: #{nth($sizes, $index)}px !important; }
+  .#{$prefix}-pl-#{nth($sizes, $index)} { padding-left: #{nth($sizes, $index)}px !important; }
+}
+
+// 快速使用
+
+.#{$prefix}-m { margin: 20px !important; }
+.#{$prefix}-mt { margin-top: 20px !important; }
+.#{$prefix}-mr { margin-right: 20px !important; }
+.#{$prefix}-mb { margin-bottom: 20px !important; }
+.#{$prefix}-ml { margin-left: 20px !important; }
+
+.#{$prefix}-p { padding: 20px !important; }
+.#{$prefix}-pt { padding-top: 20px !important; }
+.#{$prefix}-pr { padding-right: 20px !important; }
+.#{$prefix}-pb { padding-bottom: 20px !important; }
+.#{$prefix}-pl { padding-left: 20px !important; }
